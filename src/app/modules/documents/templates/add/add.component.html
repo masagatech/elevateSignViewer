@@ -1,0 +1,116 @@
+<style>
+  .newfileUpload .sdss {
+    background-color: chocolate;
+  }
+</style>
+
+<ol class="breadcrumb">
+  <app-breadcrumb></app-breadcrumb>
+  <span style="text-transform: capitalize;padding-left: 5px;"> </span>
+
+  <li class="breadcrumb-menu">
+    <!-- <app-actionbtn [isfav]="isfav"></app-actionbtn> -->
+  </li>
+</ol>
+<!-- *ngIf="!showreci" -->
+<div class="fixed-content">
+  <div class="row">
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6 ">
+      <p-card header="Add New Template">
+        <!-- <div class="row"><div class="col-md-4"></div>
+                
+                <div class="col-md-4"></div>
+              </div> -->
+        <form name="form" (ngSubmit)="f.form.valid && saveTemplate()" #f="ngForm" autocomplete="off" novalidate>
+
+          <div class="row mt-3">
+
+            <div class="col-md-12 mt-2">
+              <div class="form-group">
+                <label>Name</label><span class="text-danger">*</span>
+                <input class="form-control" id="name" name="name" #name="ngModel" type="text" autocomplete="off"
+                  required [tabindex]="1" placeholder="Enter Template Name" minlength="1" maxlength="50" focus="true"
+                  [(ngModel)]="templateObj.name" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }">
+              </div>
+              <small>
+                <div *ngIf="f.submitted && name.invalid" class="text-danger">
+                  <div *ngIf="name.errors.required">Name is required</div>
+                </div>
+              </small>
+            </div>
+            <div class="col-md-12 mt-2">
+              <div class="form-group">
+                <label>Tags <small>(Press enter to create multiple tags)</small></label><br />
+                <p-chips [(ngModel)]="templateObj.tags" name="tags" id="tags" [tabindex]="2"></p-chips>
+              </div>
+            </div>
+            <div class="col-md-12 mt-2">
+              <div class="row">
+                <div class="col-md-9" [ngClass]="{'col-md-12': (imageUrl.length == 0)}" *ngIf="!route.snapshot.paramMap.has('id')">
+                  <p-fileUpload [multiple]="false" styleClass="newfileUpload" id="filepdf" name="filepdf" [tabindex]="3"
+                  [url]="upload_url" mode="advanced" #pdfUpload maxFileSize="{{uploadMaxFilesize}}" required
+                  (onSelect)="selectFile($event,pdfUpload)" (onUpload)="onFileUpload($event,pdfUpload)"
+                  (onBeforeSend)="onFileBeforeUpload($event)" (onProgress)="onFileUploadProgress($event,pdfUpload)"
+                  auto="true" [chooseLabel]="'Upload PDF'" accept="application/pdf">
+                  <ng-template pTemplate="toolbar">
+                    <div class="text-danger d-block text-center">*Only PDF file allowed</div>
+                  </ng-template>
+                  <ng-template pTemplate="content">
+                    <div style="height: 100px;" class="upload-container">
+                      <div class="row">
+                        <div class="col-md-12 text-center mt-3">
+                          <img src="./assets/img/brand/upload.png" style="width: 50px;height: auto;">
+                          <span class="d-block text-center mt-4">Drop file here</span>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-template>
+                  </p-fileUpload>
+                </div>
+                <div class="col-md-3">
+                  <img *ngIf="imageUrl" style="width: 100px; height: 100px;" [src]="imageUrl" />
+                </div>
+              </div>
+              <small>
+                <div *ngIf="f.submitted && templateObj.docurl == ''" class="text-danger">
+                  <div>Upload PDF file</div>
+                </div>
+              </small>
+              
+            </div>
+
+            <div class="col-md-12 mt-2">
+              <div class="form-group">
+                <label>Description</label>
+                <textarea class="form-control" id="desc" name="desc" #desc="ngModel" rows="3" type="text"
+                  autocomplete="off" [tabindex]="4" placeholder="Enter Description" minlength="1" maxlength="100"
+                  [(ngModel)]="templateObj.desc"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <button class="btn btn-success btn-lg mt-2 pl-5 pr-5" type="submit" [disabled]="canSubmit" [tabindex]="5"
+                translate="">Next
+                &nbsp;<i class="fa fa-arrow-right"></i>
+              </button>
+            </div>
+            <div class=""></div>
+          </div>
+        </form>
+      </p-card>
+    </div>
+
+    <div class="col-md-3"></div>
+  </div>
+
+</div>
+
+<!-- <div class="row">
+  <div class="col-md-12">
+    <app-recipient *ngIf="showreci" [arraydata]="array"></app-recipient>
+  </div>
+ 
+</div> -->

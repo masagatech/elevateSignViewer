@@ -1,0 +1,22 @@
+
+<ol class="breadcrumb">
+  <app-breadcrumb></app-breadcrumb>
+  <!-- Breadcrumb Menu-->
+
+</ol>
+<div class="fixed-content p-0">
+  <i-docsignviewer 
+  #viewer
+  [toolbarBg]="'#e7edee'"
+  [toolbarColor]="'#333333'"
+  [showSidebar]="true"
+  [showZoomControl]="true"
+  [reduceHeight]="153"
+  [zoom]="0.8"
+  [doclist]="doclist"
+  [activedoc]="activedoc"
+  (onDoclistselect)="onDocListSelect($event)"
+  (onFinished)="onFinished($event)"
+  (onCancel)="onCancel($event)"
+  ></i-docsignviewer>
+  </div>

@@ -1,0 +1,9 @@
+.upload-container{
+            border: 2px  dashed #c7c7c7;;
+            padding: 2px 14px 2px 14px;
+            border-radius: 4px;
+}
+
+.ui-fileupload-content{
+height: 180px;
+}

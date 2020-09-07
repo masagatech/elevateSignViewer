@@ -1,0 +1,112 @@
+<ol class="breadcrumb">
+  <app-breadcrumb></app-breadcrumb>
+  <span style="text-transform: capitalize;padding-left: 5px;"> </span>
+
+  <li class="breadcrumb-menu">
+    <app-actionbtn [buttons]="buttons" (onaction)="buttonClicks($event)" ></app-actionbtn>
+
+  </li>
+</ol>
+
+<div class="fixed-content">
+
+  <form name="form" #f="ngForm" novalidate (ngSubmit)="f.form.valid && saveRecipient()">
+
+    <div class="row">
+      <div class="col-md-3 ">
+      </div>
+      <div class="col-md-6 ">
+        <p-card>
+          <div class="form-group">
+            <p-checkbox name="keeporder" [(ngModel)]="tRecipient.keeporder" [binary]="true"></p-checkbox>
+            <b>Keep Order While Sign</b>
+          </div>
+        </p-card>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-md-3 ">
+      </div>
+      <div class="col-md-6 ">
+
+        <div cdkDropList [cdkDropListData]="tRecipient.recipienthead" #firstList="cdkDropList"
+          (cdkDropListDropped)="drop($event)">
+          <div *ngFor="let key of tRecipient.recipienthead;let i = index;" class="pop" cdkDrag>
+            <div class="ui-card ui-widget ui-widget-content ui-corner-all p-3 pl-1 pr-5 d-flex mb-3"
+              style="border-left:4px solid rgb(212, 181, 0);border-radius: 5px;padding-left: 10px;">
+              <div class="handle" style="width: 40px;justify-content: center; display: flex; align-items: center;">
+                <div class="ui-card ui-widget ui-widget-content text-bold"
+                  style="padding: 7px; position: absolute; left: 4px; text-align: center;">
+                  {{i + 1}}
+                </div>
+                <i class="fa fa-arrows fa-2x text-secondary"></i>
+              </div>
+
+              <app-rec-control [recipient]="key" [rectype]="recipientType" [f]="f" style="flex: 1;">
+              </app-rec-control>
+
+              <div class="handle" style="width: 40px;justify-content: center; display: flex; align-items: center;"
+                (click)="remove(i)">
+                <i class="fa fa-trash fa-2x text-secondary"></i>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="p-2 mt-3">
+          <button class="btn btn-warning btn-block" type="button" (click)="addnewTemplate()"><i
+              class="fa fa-user-plus"></i> Add
+            More
+            Recipient</button>
+        </div>
+
+      </div>
+      <div class="col-md-3 "></div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <p-card>
+          <div class="form-group">
+            <label> Subject</label><span class="text-danger">*</span>
+            <input class="form-control" id="subject" name="subject" #subject="ngModel" type="text"
+              [(ngModel)]="tRecipient.subject" autocomplete="off" required tabindex="99" placeholder=" Enter Subject"
+              minlength="1" maxlength="50">
+            <small>
+              <div *ngIf="f.submitted && subject.invalid" class="text-danger">
+                <div *ngIf="subject.errors.required">Subject is required</div>
+              </div>
+            </small>
+          </div>
+          <div class="form-group mt-3">
+            <label> Email Body</label><span class="text-danger">*</span>
+            <p-editor id="emailbody" [tabindex]="100" name="emailbody" #emailbody="ngModel" [required]="true"
+              [(ngModel)]="tRecipient.emailbody" [style]="{'height':'320px'}"></p-editor>
+            <small>
+              <div *ngIf="f.submitted" class="text-danger">
+                <div *ngIf="tRecipient.emailbody == null">Email body is required</div>
+              </div>
+            </small>
+          </div>
+        </p-card>
+      </div>
+      <div class="col-md-3 "></div>
+    </div>
+    <!-- <div class="row mt-3">
+      <div class="col-md-3 "></div>
+      <div class="col-md-6 ">
+        <div class="p-2 mt-3">
+          <button class="btn btn-success btn-block" (click)="addnewTemplate()">
+          Next <i class="fa fa-arrow-right"></i>
+          </button>
+        </div>
+
+      </div>
+      <div class="col-md-3 "></div>
+    </div> -->
+  </form>
+
+
+</div>
