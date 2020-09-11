@@ -36,7 +36,7 @@ export class ViewerComponent implements OnInit {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
     //Add 'implements AfterViewInit' to the class.
    setTimeout(() => {
-       this.viewer.setData(this.pdfSrc, {})
+       this.viewer.setData(this.pdfSrc, {"1":{"1599553630906":{"extras":{"recipient":{"val":"Patients","extra":["Patients"]}},"style":{"fontFamily":"Arial","fontSize":12,"fontStyle":"normal","fontWeight":"normal","width":100,"left":241,"top":214},"dataset":{"name":"1599553630906","type":"text","page":1,"fieldtype":"none","maxlength":1000,"require":true},"type":"text","id":"1599553630906","text":"TextBox","val":"Value"},"1599553632941":{"extras":{"ddlprop":{"val":"asdlksja;sdklsja;sds","extra":["asdlksja","sdklsja","sds"],"defval":"sdklsja"},"recipient":{"val":"Patients","extra":["Patients"]}},"style":{"left":624,"top":228,"fontFamily":"Arial","fontSize":12,"fontStyle":"normal","fontWeight":"normal","width":100},"dataset":{"name":"1599553632941","type":"ddl","page":1,"require":true},"type":"ddl","id":"1599553632941","text":"Dropdown","val":"sdklsja"},"1599553654021":{"extras":{"recipient":{"val":"Doctor","extra":["Doctor"]}},"style":{"left":377,"top":326,"width":50,"height":50},"dataset":{"name":"1599553654021","type":"sign","page":1,"require":true},"type":"sign","id":"1599553654021"}}})
    }, 100);
 }
 onFinished(e) {

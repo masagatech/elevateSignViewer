@@ -703,130 +703,13 @@ padding: 4px;
 } 
 
 
-.ui-dialog .ui-resizable-n {
-	height: 2px;
-	top: 0;
-}
-.ui-dialog .ui-resizable-e {
-	width: 2px;
-	right: 0;
-}
-.ui-dialog .ui-resizable-s {
-	height: 2px;
-	bottom: 0;
-}
-.ui-dialog .ui-resizable-w {
-	width: 2px;
-	left: 0;
-}
-.ui-dialog .ui-resizable-se,
-.ui-dialog .ui-resizable-sw,
-.ui-dialog .ui-resizable-ne,
-.ui-dialog .ui-resizable-nw {
-	width: 7px;
-	height: 7px;
-}
-.ui-dialog .ui-resizable-se {
-	right: 0;
-	bottom: 0;
-}
-.ui-dialog .ui-resizable-sw {
-	left: 0;
-	bottom: 0;
-}
-.ui-dialog .ui-resizable-ne {
-	right: 0;
-	top: 0;
-}
-.ui-dialog .ui-resizable-nw {
-	left: 0;
-	top: 0;
-}
-.ui-draggable .ui-dialog-titlebar {
-	cursor: move;
-}
-.ui-draggable-handle {
-	-ms-touch-action: none;
-	touch-action: none;
-}
-.ui-resizable {
-	position: relative;
-}
-.ui-resizable-handle {
-	position: absolute;
-	font-size: 0.1px;
-	display: block;
-	-ms-touch-action: none;
-	touch-action: none;
-}
-.ui-resizable-disabled .ui-resizable-handle,
-.ui-resizable-autohide .ui-resizable-handle {
-	display: none;
-}
-.ui-resizable-n {
-	cursor: n-resize;
-	height: 7px;
-	width: 100%;
-	top: -5px;
-	left: 0;
-}
-.ui-resizable-s {
-	cursor: s-resize;
-	height: 7px;
-	width: 100%;
-	bottom: -5px;
-	left: 0;
-}
-.ui-resizable-e {
-	cursor: e-resize;
-	width: 7px;
-	right: -5px;
-	top: 0;
-	height: 100%;
-}
-.ui-resizable-w {
-	cursor: w-resize;
-	width: 7px;
-	left: -5px;
-	top: 0;
-	height: 100%;
-}
-.ui-resizable-se {
-	cursor: se-resize;
-	width: 12px;
-	height: 12px;
-	right: 1px;
-	bottom: 1px;
-}
-.ui-resizable-sw {
-	cursor: sw-resize;
-	width: 9px;
-	height: 9px;
-	left: -5px;
-	bottom: -5px;
-}
-.ui-resizable-nw {
-	cursor: nw-resize;
-	width: 9px;
-	height: 9px;
-	left: -5px;
-	top: -5px;
-}
-.ui-resizable-ne {
-	cursor: ne-resize;
-	width: 9px;
-	height: 9px;
-	right: -5px;
-	top: -5px;
-}
-
-
 .ui-dialog {
 	position: absolute;
 	top: 0;
 	left: 0;
 	padding: .2em;
-	outline: 0;
+  outline: 0;
+  z-index: 1111;
 }
 .ui-dialog .ui-dialog-titlebar {
 	padding: .4em 1em;
@@ -857,11 +740,11 @@ padding: 4px;
 	overflow: auto;
 }
 .ui-dialog .ui-dialog-buttonpane {
-	text-align: left;
-	border-width: 1px 0 0 0;
-	background-image: none;
-	margin-top: .5em;
-	padding: .3em 1em .5em .4em;
+  background: #fff;
+  margin: 0;
+  border: 1px solid #c8c8c8;
+  border-top: 0;
+  border-bottom: 0;
 }
 .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
 	float: right;
@@ -908,25 +791,7 @@ padding: 4px;
 .ui-dialog .ui-resizable-nw {
 	left: 0;
 	top: 0;
-}
-.ui-draggable .ui-dialog-titlebar {
-	cursor: move;
-}
-
-.ui-chips {
-  width: 100% !important;
-}
-
-.modal-full{   width: 80% }
-
-
-.input-icon{
-  padding: 0!important;
-    align-items: center;
-    display: flex!important;
-    justify-content: center;
-}
-
+} 
 
 /* positioning */
 .ui-icon-blank { background-position: 16px 16px; }
